@@ -2,29 +2,23 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 
-
 function App() {
-  const [days, setDays] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/test`)
+      .get(`${API}/products`)
       .then(
         (response) => {
-          setDays(response.data);
+          setProducts(response.data.payload);
         },
         (error) => console.log("get", error)
       )
       .catch((c) => console.warn("catch", c));
   }, []);
-  console.log(days);
+ console.log(products)
   return (
     <div>
       Front End!
-      {/* <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul> */}
     </div>
   );
 }
