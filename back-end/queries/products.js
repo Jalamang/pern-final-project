@@ -10,4 +10,7 @@ const getProducts = async () => {
   }
 };
 
-module.exports= {getProducts}
+
+
+module.exports= {getProducts,
+  }
