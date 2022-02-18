@@ -8,5 +8,6 @@ INSERT INTO product ( brand,
     modelName,
     productCategory,
     is_available) VALUES
-('Ear Phone', 'Panasonic ErgoFit Earbud Headphones with Microphone and Call Controller Compatible with iPhone, Android and Blackberry - RP-TCM125-K - In-Ear (Black), Earpads S/M/L', 'https://picsum.photos/id/1080/300/300', 'Pink', 11.99, 'RP-TCM125', 'Ear Piece', true);
+('Panasonic', 'Panasonic ErgoFit Earbud Headphones with Microphone and Call Controller Compatible with iPhone, Android and Blackberry - RP-TCM125-K - In-Ear (Black), Earpads S/M/L', '../../assets/product-images/Panasonic.jpeg', 'Pink', 11.99, 'RP-TCM125', 'Ear Piece', true),
+('Fimitech', 'Bluetooth Headset, FIMITECH Wireless Earpiece V5.0 Ultralight Hands Free Business Earphone with Mic for Business/Office/Driving', '../../assets/product-images/Fimitect.jpeg', 'Black', 33.14, 'C-8-FUTI Style', 'Ear Piece', true);
 
