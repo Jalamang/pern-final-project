@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 
-console.log(API);
+
 function App() {
   const [days, setDays] = useState([]);
   useEffect(() => {
@@ -16,13 +16,15 @@ function App() {
       )
       .catch((c) => console.warn("catch", c));
   }, []);
+  console.log(days);
   return (
     <div>
-      <ul>
+      Front End!
+      {/* <ul>
         {days.map((day) => (
           <li key={day.name}>{day.name}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
