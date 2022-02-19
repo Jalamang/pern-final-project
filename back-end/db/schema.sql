@@ -10,8 +10,7 @@ CREATE TABLE product (
     brand TEXT,
     productDescription TEXT,
     picture TEXT,
-    color TEXT,
-    price INT,
+    price NUMERIC,
     modelName TEXT,
     productCategory TEXT,
     is_available BOOLEAN DEFAULT true
