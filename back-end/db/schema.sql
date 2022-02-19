@@ -5,7 +5,7 @@ CREATE DATABASE cta_dev;
 
 DROP TABLE IF EXISTS test;
 
-CREATE TABLE product (
+CREATE TABLE electronics (
     productID SERIAL PRIMARY KEY, 
     brand TEXT,
     productDescription TEXT,
