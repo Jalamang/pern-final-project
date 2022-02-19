@@ -2,7 +2,7 @@ const db = require("../db/dbConfig");
 
 const getProducts = async () => {
   try {
-    const products = await db.any("SELECT * FROM product");
+    const products = await db.any("SELECT * FROM electronics");
     console.log(products);
     return products;
   } catch (error) {
@@ -13,7 +13,7 @@ const getProducts = async () => {
 const getProduct = async (id) => {
   try {
     const product = await db.one(
-      "SELECT * FROM product WHERE productid=$1",
+      "SELECT * FROM electronics WHERE productid=$1",
       id
     );
     return product;
@@ -35,7 +35,7 @@ const createProduct = async (product) => {
   } = product;
   try {
     const newProduct = await db.one(
-      "INSERT INTO product (brand,productdescription,picture,color,price,modelname,productcategory,is_available) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING * ",
+      "INSERT INTO electronics (brand,productdescription,picture,color,price,modelname,productcategory,is_available) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING * ",
       [
         brand,
         productdescription,
@@ -66,7 +66,7 @@ const updateProduct = async (id, product) => {
 
   try {
     const updatedProduct = await db.one(
-      "UPDATE product SET brand=$1, productdescription=$2, picture=$3, price=$4, modelname=$5, productcategory=$6, is_available=$7 WHERE productid=$8 RETURNING *",
+      "UPDATE electronics SET brand=$1, productdescription=$2, picture=$3, price=$4, modelname=$5, productcategory=$6, is_available=$7 WHERE productid=$8 RETURNING *",
       [
         brand,
         productdescription,
@@ -82,4 +82,14 @@ const updateProduct = async (id, product) => {
   }
 };
 
-module.exports = { getProducts, getProduct, createProduct, updateProduct };
+const deleteProduct = async (id) => {
+
+  try {
+    const deletedProduct = await db.one("DELETE FROM electronics WHERE productid=$1 RETURNING *", id)
+    return deletedProduct;
+  } catch (error) {
+    return error.message
+  }
+}
+
+module.exports = { getProducts, getProduct, createProduct, updateProduct, deleteProduct };

@@ -1,6 +1,6 @@
 \c cta_dev;
 
-INSERT INTO product ( brand,
+INSERT INTO electronics ( brand,
     productDescription,
     picture,
     price,
