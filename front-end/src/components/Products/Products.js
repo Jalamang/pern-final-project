@@ -1,37 +1,63 @@
 import axios from "axios";
-import React from "react";
-import { Grid } from "@material-ui/core";
-import { useState, useEffect } from "react";
-import Product from "../Product/Product";
+import React, { useState, useEffect } from "react";
+import SearchProduct from "../SearchProduct/SearchProduct";
+import Content from "./Content/Content";
+import ShoppingCart from "./ShoppingCart";
 
 const API = process.env.REACT_APP_API_URL;
 
-const Products = () => {
+const Products = ({
+  cartList,
+  handleAddProduct,
+  handleRemoveProduct,
+  setCartList,
+  handleCartEmpty,
+}) => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productData = await axios.get(API + "/products");
-        setProducts(productData.data);
-      } catch (err) {
-        return err;
+        const { data } = await axios.get(API + "/products");
+        setProducts(data);
+        setFetchError(null);
+      } catch (error) {
+        setFetchError("Backend connection is not established!");
+      } finally {
+        setIsLoading(false);
       }
     };
-    fetchData();
+    setTimeout(() => fetchData(), 1000);
   }, []);
 
-
   return (
-    <main>
-      <Grid container justifyContent="center" spacing={4}>
-   
-        {products.map((product) => (
-          <Grid item key={product.productid} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
-          </Grid>
-        ))}
-      </Grid>
-    </main>
+    <>
+      <SearchProduct search={search} setSearch={setSearch} />
+      <div className="prod-cart-item">
+        <ShoppingCart
+          cartList={cartList}
+          handleAddProduct={handleAddProduct}
+          handleRemoveProduct={handleRemoveProduct}
+          setCartList={setCartList}
+          handleCartEmpty={handleCartEmpty}
+        />
+      </div>
+      <main>
+        {isLoading && <p>Loading products...</p>}
+        {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
+        {!fetchError && !isLoading && (
+          <Content
+            product={products?.filter((product) =>
+              product.name.toLowerCase().includes(search.toLowerCase())
+            )}
+            handleAddProduct={handleAddProduct}
+          />
+        )}
+      </main>
+    </>
   );
 };
 

@@ -1,0 +1,24 @@
+.new-product {
+  margin-top: 10px;
+  margin-bottom: 2em;
+}
+
+.form-group input {
+  display: grid;
+  justify-content: center;
+  width: 35em;
+  margin-top: 10px;
+  margin-bottom: 2em;
+}
+
+form.form-group {
+  width: 45em;
+  margin-top: 3ex;
+  border: 1px solid;
+  border-radius: 12px;
+  margin-left: 40em;
+  margin-right: 40em;
+  background-color: rgba(78, 95, 96, 0.264);
+  padding: 4em;
+}
+

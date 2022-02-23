@@ -2,17 +2,11 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import"./NewProduct.css"
 const API = process.env.REACT_APP_API_URL;
 const NewProduct = () => {
   const [product, setProduct] = useState({
-    brand: "",
-    productdescription: "",
-    picture: "",
-    price: "",
-    modelname: "",
-    productcategory: "",
-    is_available: "",
+    name:"", picture:"", capacity:"", description:"", material:"", rating:"", featured:""
   });
   const navigate = useNavigate();
   const { id } = useParams();
@@ -42,64 +36,78 @@ const NewProduct = () => {
   };
 
   return (
-    <div>
-      NewProduct
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="brand"> Brand : </label>
+    <div  className="new-product">
+      <form className="form-group" onSubmit={handleSubmit}>
+        <label htmlFor="name"> Name : </label>
         <input
+        class="form-control"
           type="text"
-          id="brand"
-          value={product.brand}
+          id="name"
+          value={product.name}
           onChange={handleTextChange}
           required
         />
-
-        <label htmlFor="productdescription"> Product Description :</label>
+      
+        <label htmlFor="picture"> Url :</label>
         <input
-          type="text"
-          id="productdescription"
-          value={product.productdescription}
-          onChange={handleTextChange}
-          required
-        />
-
-        <label htmlFor="picture"> Image : </label>
-        <input
-          type="text"
+        class="form-control"
+          type="url"
           id="picture"
           value={product.picture}
           onChange={handleTextChange}
           required
         />
 
-        <label htmlFor="price"> Price : </label>
+        <label htmlFor="capacity"> Capacity : </label>
         <input
+        class="form-control"
           type="number"
-          id="price"
-          value={product.price}
+          id="capacity"
+          value={product.capacity}
           onChange={handleTextChange}
           required
         />
         
-        <label htmlFor="modelname"> Model Name : </label>
+        <label htmlFor="description"> Description : </label>
         <input
+        class="form-control"
           type="text"
-          id="modelname"
-          value={product.modelname}
+          id="description"
+          value={product.description}
           onChange={handleTextChange}
           required
         />
 
-        <label htmlFor="productcategory"> Product Category : </label>
+        <label htmlFor="material"> Material : </label>
         <input
+        class="form-control"
           type="text"
-          id="productcategory"
-          value={product.productcategory}
+          id="material"
+          value={product.material}
           onChange={handleTextChange}
           required
         />
 
-<input type="submit" />
+           <label htmlFor="rating"> Rating : </label>
+        <input
+        class="form-control"
+          type="text"
+          id="rate"
+          value={product.rate}
+          onChange={handleTextChange}
+          required
+        />
+           <label htmlFor="rating"> Featured : </label>
+        <input
+        class="form-control"
+          type="text"
+          id="featured"
+          value={product.featured}
+          onChange={handleTextChange}
+          required
+        />
+
+<button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   );
