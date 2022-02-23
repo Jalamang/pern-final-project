@@ -36,8 +36,8 @@ const Product = ({ product, handleAddProduct }) => {
           <div>
             <Typography variant="h5" gutterBottom></Typography>
             <Typography variant="h5">{name}</Typography>
-            <Typography variant="h5">{price}</Typography>
-            <Typography variant="h5"> ${capacity} Liters </Typography>
+            <Typography variant="h5">${price}</Typography>
+            <Typography variant="h5"> {capacity} Liters </Typography>
           </div>
 
         </CardContent>

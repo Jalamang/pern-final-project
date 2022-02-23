@@ -51,7 +51,7 @@ const NewProduct = () => {
         <label htmlFor="picture"> Url :</label>
         <input
         class="form-control"
-          type="url"
+          type="file"
           id="picture"
           value={product.picture}
           onChange={handleTextChange}

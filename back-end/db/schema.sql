@@ -9,6 +9,7 @@ CREATE TABLE electronics (
     productid SERIAL PRIMARY KEY, 
     name TEXT,
     picture TEXT,
+    color TEXT,
     price NUMERIC,
     capacity NUMERIC,
     description TEXT,

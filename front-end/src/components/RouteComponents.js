@@ -10,8 +10,8 @@ const RouteComponents = () => {
     setCartList([...cartList, { ...product }]);
   };
 
-  const handleRemoveProduct = (removeProduct) => {
-    setCartList(cartList.filter((product) => product !== removeProduct));
+  const handleRemoveProduct = (removedProduct) => {
+    setCartList(cartList.filter((product) => product !== removedProduct));
   };
 
   const handleCartEmpty = () => {
@@ -35,17 +35,24 @@ const RouteComponents = () => {
             />
           }
         ></Route>
-        <Route path="/products/:id/" element={<Show  handleAddProduct={handleAddProduct}/>}></Route>
+        <Route
+          path="/products/:id/"
+          element={<Show handleAddProduct={handleAddProduct} />}
+        ></Route>
         <Route path="/products/new" element={<New />}></Route>
         <Route path="/products/:id/edit" element={<Edit />}></Route>
-        <Route path="/cart" element={<Cart 
-            cartList={cartList}
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartList={cartList}
               handleAddProduct={handleAddProduct}
               handleRemoveProduct={handleRemoveProduct}
               setCartList={setCartList}
               handleCartEmpty={handleCartEmpty}
-        
-        />}></Route>
+            />
+          }
+        ></Route>
       </Routes>
     </>
   );

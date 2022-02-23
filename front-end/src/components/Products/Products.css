@@ -27,6 +27,20 @@ font-weight: bolder;
 }
 
 
+Button.empty-cart {
+  background-color: rgba(172, 138, 133, 0.99);
+  margin-left: 125em;
+  position: relative;
+  bottom: 3em;
+  color: rgb(0, 5, 8);
+  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.empty-cart:hover {
+  background-color: rgb(245, 40, 4);
+}
+
 @media screen {
   .cart-item {
     background-color: rgba(144, 118, 39, 0.072);

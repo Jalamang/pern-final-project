@@ -18,7 +18,7 @@ const ShoppingCard = ({
       <h4>Shopping Card</h4>
       {!cartList.length && <p> Your cart is empty</p>}
       {cartList.length >= 1 && (
-        <Button onClick={handleCartEmpty}>Empty Cart</Button>
+        <Button className="empty-cart" onClick={handleCartEmpty}>Empty Cart</Button>
       )}
 
       {cartList.map((product) => (
