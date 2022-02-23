@@ -1,5 +1,6 @@
 const express = require("express");
 const { getProducts, getProduct, createProduct, updateProduct, deleteProduct} = require("../queries/products");
+const  determinePrice  = require("./determinePrice")
 const products = express.Router();
 
 products.get("/", async (_, response) => {
@@ -16,8 +17,11 @@ products.get("/:id", async (request, response) => {
   
 
   products.post("/", async (request, response) => {
-    const newProduct = await createProduct(request.body)
-    response.status(200).send(newProduct)
+    let newProduct = request.body;
+    console.log(newProduct)
+    newProduct.price = determinePrice(newProduct)
+    const newProd = await createProduct(newProduct)
+    response.status(200).send(newProd)
 })
 
   products.put("/:id", async (request, response) => {

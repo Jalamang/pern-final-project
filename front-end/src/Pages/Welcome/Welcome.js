@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React from "react";
+// import Login from '../../components/Login/Login'
+import "./Welcome.css";
 const Welcome = () => {
-  return (
-    <div>Welcome</div>
-  )
-}
+  return <div className="welcome">{/* <Login/> */}</div>;
+};
 
-export default Welcome
+export default Welcome;

@@ -8,47 +8,50 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import { AddShoppingCart, FavoriteBorderOutlined } from "@material-ui/icons";
 import useStyles from "../Products/Styles";
 
-const Product = ({ product }) => {
-  console.log(product)
+const Product = ({ product, handleAddProduct }) => {
   const classes = useStyles();
 
   const {
     productid,
-    brand,
-    productdescription,
+    name,
     picture,
     price,
-    modelname,
-    productcategory,
-    is_available,
+    capacity,
+    description,
+    material,
+    rating,
+    featured,
   } = product;
 
-  return (<>
-  
-  <Link to={"/products/" + productid }>
-    <Card className={classes.root}>
-      <CardMedia className={classes.media} image={picture} title={brand} />
-      <CardContent>
-        <div>
-          <Typography variant="h5" gutterBottom></Typography>
-          <Typography variant="h5">{brand}</Typography>
-          <Typography variant="h5">{price}</Typography>
-        </div>
+  return (
+    <>
+      <Card className={classes.root}>
+        <Link to={"/products/" + productid}>
+          <CardMedia className={classes.media} image={picture} title={name} />
+        </Link>
+        <CardContent>
+          <div>
+            <Typography variant="h5" gutterBottom></Typography>
+            <Typography variant="h5">{name}</Typography>
+            <Typography variant="h5">{price}</Typography>
+            <Typography variant="h5"> ${capacity} Liters </Typography>
+          </div>
 
-        <Typography variant="h2" color="textSecondary">
-          {is_available}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing className={classes.CardActions}>
-        <IconButton aria-label="Add to Cart">
-          <AddShoppingCart />
-        </IconButton>
-      </CardActions>
-    </Card>
-    </Link>
+        </CardContent>
+        <CardActions disableSpacing className={classes.CardActions}>
+          <IconButton>
+            <FavoriteBorderOutlined />
+          </IconButton>
+          <IconButton
+            onClick={() => handleAddProduct(product)}
+          >
+            <AddShoppingCart />
+          </IconButton>
+        </CardActions>
+      </Card>
     </>
   );
 };

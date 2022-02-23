@@ -24,27 +24,13 @@ const getProduct = async (id) => {
 
 const createProduct = async (product) => {
   const {
-    brand,
-    productdescription,
-    picture,
-    color,
-    price,
-    modelname,
-    productcategory,
-    is_available,
+    name, picture, price, capacity, description, material, rating, featured
   } = product;
   try {
     const newProduct = await db.one(
-      "INSERT INTO electronics (brand,productdescription,picture,color,price,modelname,productcategory,is_available) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING * ",
+      "INSERT INTO electronics (name, picture, price, capacity, description, material, rating, featured) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING * ",
       [
-        brand,
-        productdescription,
-        picture,
-        color,
-        price,
-        modelname,
-        productcategory,
-        is_available,
+        name, picture, price, capacity, description, material, rating, featured
       ]
     );
     return newProduct;
@@ -55,26 +41,13 @@ const createProduct = async (product) => {
 
 const updateProduct = async (id, product) => {
   const {
-    brand,
-    productdescription,
-    picture,
-    price,
-    modelname,
-    productcategory,
-    is_available,
+    name, picture, price, capacity, description, material, rating, featured
   } = product;
 
   try {
     const updatedProduct = await db.one(
-      "UPDATE electronics SET brand=$1, productdescription=$2, picture=$3, price=$4, modelname=$5, productcategory=$6, is_available=$7 WHERE productid=$8 RETURNING *",
-      [
-        brand,
-        productdescription,
-        picture,
-        price,
-        modelname,
-        productcategory,
-        is_available, id]
+      "UPDATE electronics SET name=$1, picture=$2, price=$3, capacity=$4, description=$5, material=$6, rating=$7, featured=$8 WHERE productid=$9 RETURNING *",
+      [name, picture, price, capacity, description, material, rating, featured, id]
     );
     return updatedProduct;
   } catch (error) {
