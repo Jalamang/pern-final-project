@@ -65,13 +65,13 @@ const ProductDetails = ({ handleAddProduct }) => {
             <CardContent>
               <div>
                 <Typography variant="h5" gutterBottom></Typography>
-                <Typography variant="h5">Brand: {name}</Typography>
-                <Typography variant="h5">Price: {price}</Typography>
-                <Typography variant="h5">Capacity: {capacity} Liter</Typography>
+                <Typography variant="h5"><strong>Brand:</strong> {name}</Typography>
+                <Typography variant="h5"><strong>Price:</strong> {price}</Typography>
+                <Typography variant="h5"><strong>Capacity:</strong> {capacity} Liter</Typography>
               </div>
 
               <Typography variant="h6" color="textSecondary">
-                Material: {material}
+                <strong>Material:</strong> {material}
               </Typography>
             </CardContent>
             <CardActions disableSpacing className={classes.CardActions}>

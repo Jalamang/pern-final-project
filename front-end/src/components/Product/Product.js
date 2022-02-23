@@ -18,6 +18,7 @@ const Product = ({ product, handleAddProduct }) => {
     productid,
     name,
     picture,
+    color,
     price,
     capacity,
     description,
@@ -35,9 +36,10 @@ const Product = ({ product, handleAddProduct }) => {
         <CardContent>
           <div>
             <Typography variant="h5" gutterBottom></Typography>
-            <Typography variant="h5">{name}</Typography>
-            <Typography variant="h5">${price}</Typography>
-            <Typography variant="h5"> {capacity} Liters </Typography>
+            <Typography variant="h5"><strong>Name:</strong> {name}</Typography>
+            <Typography variant="h5"><strong>Price:</strong> ${price}</Typography>
+            <Typography variant="h5"><strong>Capacity:</strong> {capacity} Liters </Typography>
+            <Typography variant="body1"><strong>Material:</strong> {material} </Typography>
           </div>
 
         </CardContent>
