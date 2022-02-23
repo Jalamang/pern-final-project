@@ -14,6 +14,8 @@
 
 - [FrontEnd](https://pern-frontend.netlify.app/)
 
+- [PERN FINAL ASSESSMENT Trello board](https://trello.com/b/YxZoyTCe/pern-final-assessment)
+
 
 # Index Page IndexPage-brn
 Matches criteria for RESTful Route

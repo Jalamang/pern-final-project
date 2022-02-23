@@ -5,16 +5,17 @@ CREATE DATABASE cta_dev;
 
 DROP TABLE IF EXISTS test;
 
-CREATE TABLE product (
-    productID SERIAL PRIMARY KEY, 
-    brand TEXT,
-    productDescription TEXT,
+CREATE TABLE electronics (
+    productid SERIAL PRIMARY KEY, 
+    name TEXT,
     picture TEXT,
-    color TEXT,
-    price INT,
-    modelName TEXT,
-    productCategory TEXT,
-    is_available BOOLEAN DEFAULT true
+    price NUMERIC,
+    capacity NUMERIC,
+    description TEXT,
+    material TEXT,
+    rating INT,
+    CHECK (rating >= 0 AND rating <= 5),
+    featured BOOLEAN DEFAULT true
 );
 
 

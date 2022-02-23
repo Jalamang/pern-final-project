@@ -7,12 +7,14 @@ const app = express();
 
 const productController = require('./Controllers/productsController')
 
+
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
 
 app.use("/products", productController);
+
 
 
 // ROUTES
