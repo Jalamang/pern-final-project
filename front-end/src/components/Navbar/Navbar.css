@@ -1,0 +1,74 @@
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+  background-color: gray;
+}
+
+.flex-container > div {
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 48px;
+}
+
+.home {
+    padding-top: 1rem;
+    cursor: pointer; 
+}
+
+
+.electronics {
+    padding-top: 1rem;
+    font-style: normal;
+    font-family: fantasy;
+    cursor: pointer; 
+}
+
+    
+Button.new-prod {
+    position: relative;
+    top: 3rem;
+    margin-left: 2.5rem;
+    height: 2.5rem;
+    width: 15em;font-size: 1em;
+    /* border: 2px solid; */
+    background-color: rgb(124, 135, 135);
+}
+input {
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
+    height: 2.5rem;
+    width: 27em;
+    /* border-radius: 12px; */
+}
+
+
+@media screen and (max-width: 600px) {
+    input {
+        margin-top: 3.3rem;
+        margin-left: 2rem;
+        margin-bottom: 0;
+        height: 2.5rem;
+        width: 15em;
+        border-radius: 12px;
+    }
+
+    .electronics {
+        padding-top: 0.3rem;
+        font-style: normal;
+        font-family: fantasy;
+    }
+
+
+    Button.new-prod {
+        position: relative;
+        top: 6.5rem;
+        margin-left: 2.5rem;
+        height: 2.5rem;
+        width: 15em;font-size: 1em;
+        /* border: 2px solid; */
+        background-color: rgb(124, 135, 135);
+    }
+  }
