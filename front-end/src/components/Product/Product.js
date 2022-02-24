@@ -46,6 +46,7 @@ const Product = ({ product, handleAddProduct }) => {
         <CardActions disableSpacing className={classes.CardActions}>
           <IconButton>
             <FavoriteBorderOutlined />
+            {rating}
           </IconButton>
           <IconButton
             onClick={() => handleAddProduct(product)}

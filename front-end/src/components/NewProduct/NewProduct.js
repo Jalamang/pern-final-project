@@ -3,11 +3,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import"./NewProduct.css"
+
 const API = process.env.REACT_APP_API_URL;
+
 const NewProduct = () => {
   const [product, setProduct] = useState({
-    name:"", picture:"", capacity:"", description:"", material:"", rating:"", featured:""
+    name:"", picture:"", color:"", capacity:"", description:"", material:"", rating:"", featured:""
   });
+  
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -51,9 +54,19 @@ const NewProduct = () => {
         <label htmlFor="picture"> Url :</label>
         <input
         class="form-control"
-          type="file"
+          type="url"
           id="picture"
           value={product.picture}
+          onChange={handleTextChange}
+          required
+        />
+
+        <label htmlFor="color"> Color :</label>
+        <input
+        class="form-control"
+          type="text"
+          id="color"
+          value={product.color}
           onChange={handleTextChange}
           required
         />
@@ -91,9 +104,9 @@ const NewProduct = () => {
            <label htmlFor="rating"> Rating : </label>
         <input
         class="form-control"
-          type="text"
-          id="rate"
-          value={product.rate}
+          type="number"
+          id="rating"
+          value={product.rating}
           onChange={handleTextChange}
           required
         />

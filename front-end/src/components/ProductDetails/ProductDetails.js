@@ -10,7 +10,7 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import { AddShoppingCart, FavoriteBorderOutlined } from "@material-ui/icons";
 import useStyles from "../Products/Styles";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -75,6 +75,10 @@ const ProductDetails = ({ handleAddProduct }) => {
               </Typography>
             </CardContent>
             <CardActions disableSpacing className={classes.CardActions}>
+            <IconButton>
+            <FavoriteBorderOutlined />
+            {rating}
+          </IconButton>
               <IconButton onClick={handleAddProduct}>
                 <AddShoppingCart />
               </IconButton>
