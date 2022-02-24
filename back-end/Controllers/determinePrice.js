@@ -48,7 +48,7 @@ const determinePrice = (product) => {
     }
   }
 };
-const formatSnackName = (material) => {
+const formatProductName = (material) => {
   material = material[0].toUpperCase() + material.slice(1).toLowerCase();
   return material;
 };
