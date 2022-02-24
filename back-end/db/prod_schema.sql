@@ -4,6 +4,7 @@ CREATE TABLE electronics (
     productid SERIAL PRIMARY KEY, 
     name TEXT,
     picture TEXT,
+    color TEXT,
     price NUMERIC,
     capacity NUMERIC,
     description TEXT,
@@ -12,4 +13,3 @@ CREATE TABLE electronics (
     CHECK (rating >= 0 AND rating <= 5),
     featured BOOLEAN DEFAULT true
 );
-

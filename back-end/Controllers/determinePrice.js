@@ -53,4 +53,4 @@ const formatSnackName = (material) => {
   return material;
 };
 
-module.exports = { determinePrice, formatSnackName };
+module.exports = { determinePrice, formatProductName };

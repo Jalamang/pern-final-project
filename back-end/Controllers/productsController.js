@@ -6,7 +6,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../queries/products");
-const { determinePrice, formatSnackName } = require("./determinePrice");
+const { determinePrice, formatProductName } = require("./determinePrice");
 const products = express.Router();
 
 products.get("/", async (_, response) => {
@@ -27,7 +27,7 @@ products.get("/:id", async (request, response) => {
 products.post("/", async (request, response) => {
   let newProduct = request.body;
   try {
-    newProduct.material = formatSnackName(newProduct.material);
+    newProduct.material = formatProductName(newProduct.material);
     newProduct.price = determinePrice(newProduct);
     const newProd = await createProduct(newProduct);
     response.status(200).send(newProd);
