@@ -1,9 +1,9 @@
 ## I'm a soothsayer but I can't 'tell myself'!
 
 
-# An Electronics App Store 
+# An e-Kettle & Mug App Store 
 
-## ![Tux, the Linux mascot](./assets/product-images/electronic_gadgets.png) ##
+## ![Tux, the Linux mascot](./assets/product-images/mugs.jpg) ##
 ---
 
 
@@ -20,7 +20,7 @@
 # Index Page IndexPage-brn
 Matches criteria for RESTful Route
 
-This criterion is linked to a Learning Outcome
+This **criterion** is linked to a Learning Outcome
 # Show Page  ShowPage-brn
 Matches criteria for RESTful Route
 

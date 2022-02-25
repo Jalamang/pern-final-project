@@ -1,0 +1,16 @@
+.searchForm{
+    /* border: 1px solid; */
+    height: 5em;
+    border-radius: 12px;
+    margin-right: 70em;
+    opacity: .9;
+}
+
+input.search-Form {
+    opacity: .9;
+    position: relative;
+    top: -14px;
+    border-radius: 12px;
+    height: 3em;
+
+}

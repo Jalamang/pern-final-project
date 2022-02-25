@@ -1,7 +1,7 @@
 const determinePrice = (product) => {
   let { price, capacity, material } = product;
 
-  capacity <= 0 && "";
+  // if(capacity <= 0){return  }
 
   const glassBasePrice = 17;
   const steelBasePrice = 45;
@@ -19,6 +19,8 @@ const determinePrice = (product) => {
     } else if (capacity >= 1 || capacity <= 1.5) {
       price = glassBasePrice + glassBasePrice * 0.65;
       return price; //> $28.05
+    } else if (capacity <= 0) {
+      return;
     }
   }
 
@@ -32,6 +34,8 @@ const determinePrice = (product) => {
     } else if (capacity >= 1 || capacity <= 1.5) {
       price = steelBasePrice + steelBasePrice * 0.65;
       return price; //> $74.25
+    } else if (capacity <= 0) {
+      return;
     }
   }
 
@@ -45,6 +49,8 @@ const determinePrice = (product) => {
     } else if (capacity >= 1 || capacity <= 1.5) {
       price = alumBasePrice + alumBasePrice * 0.65;
       return price; //> $74.25
+    } else if (capacity <= 0) {
+      return;
     }
   }
 };

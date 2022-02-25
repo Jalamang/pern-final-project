@@ -52,7 +52,7 @@ const ProductDetails = ({ handleAddProduct }) => {
   } = product;
 
   const handleDelete = async () => {
-    await axios.delete(API + "/products/" + id);
+    await axios.delete(API + "/products/" + productid);
     navigate("/products");
   };
 
@@ -61,7 +61,7 @@ const ProductDetails = ({ handleAddProduct }) => {
       <Grid container justifyContent="center" spacing={4}>
         <Grid item key={product.productid} xs={12} sm={6} md={4} lg={3}>
           <Card className={classes.root}>
-            <CardMedia className={classes.media} image={picture} title={name} />
+            <CardMedia key={product.productid} className={classes.media} image={picture} title={name} />
             <CardContent>
               <div>
                 <Typography variant="h5" gutterBottom></Typography>

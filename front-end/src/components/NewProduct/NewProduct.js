@@ -7,9 +7,7 @@ import"./NewProduct.css"
 const API = process.env.REACT_APP_API_URL;
 
 const NewProduct = () => {
-  const [product, setProduct] = useState({
-    name:"", picture:"", color:"", capacity:"", description:"", material:"", rating:"", featured:""
-  });
+  const [product, setProduct] = useState({});
   
   const navigate = useNavigate();
   const { id } = useParams();
@@ -43,84 +41,84 @@ const NewProduct = () => {
       <form className="form-group" onSubmit={handleSubmit}>
         <label htmlFor="name"> Name : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="text"
           id="name"
-          value={product.name}
+          value={product.name || ""}
           onChange={handleTextChange}
           required
         />
       
         <label htmlFor="picture"> Url :</label>
         <input
-        class="form-control"
+        className="form-control"
           type="url"
           id="picture"
-          value={product.picture}
+          value={product.picture || ""}
           onChange={handleTextChange}
           required
         />
 
         <label htmlFor="color"> Color :</label>
         <input
-        class="form-control"
+        className="form-control"
           type="text"
           id="color"
-          value={product.color}
+          value={product.color || ""}
           onChange={handleTextChange}
           required
         />
 
         <label htmlFor="capacity"> Capacity : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="number"
           id="capacity"
-          value={product.capacity}
+          value={product.capacity || ""}
           onChange={handleTextChange}
           required
         />
         
         <label htmlFor="description"> Description : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="text"
           id="description"
-          value={product.description}
+          value={product.description || ""}
           onChange={handleTextChange}
           required
         />
 
         <label htmlFor="material"> Material : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="text"
           id="material"
-          value={product.material}
+          value={product.material || ""}
           onChange={handleTextChange}
           required
         />
 
            <label htmlFor="rating"> Rating : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="number"
           id="rating"
-          value={product.rating}
+          value={product.rating || ""}
           onChange={handleTextChange}
           required
         />
            <label htmlFor="rating"> Featured : </label>
         <input
-        class="form-control"
+        className="form-control"
           type="text"
           id="featured"
-          value={product.featured}
+          value={product.featured || ""}
           onChange={handleTextChange}
           required
         />
 
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
   );

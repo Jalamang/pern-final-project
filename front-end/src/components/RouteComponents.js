@@ -8,7 +8,21 @@ const RouteComponents = () => {
 
   const handleAddProduct = (product) => {
     setCartList([...cartList, { ...product }]);
-  };
+
+    // const foundProduct = cartList.find(item => item.id=== product.id);
+    // if(foundProduct) {
+    //   setCartList(cartList.forEach(item => {
+    //     if(item.id === product.productid){
+    //       item.quantity += 1 
+    //       return item
+    //     } else {
+    //       item.quantity = 1
+    //     }
+    //   }))
+    // } 
+  
+  }
+
 
   const handleRemoveProduct = (removedProduct) => {
     setCartList(cartList.filter((product) => product !== removedProduct));
