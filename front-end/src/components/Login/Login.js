@@ -1,53 +1,77 @@
-import React, { useState } from "react";
-
-import "./Login.css";
+import { useState } from 'react'
+// import { useDispatch } from 'react-redux'
 
 const Login = () => {
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-  });
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+  })
+  const [error, setError] = useState(false)
 
-  const { email, password } = inputs;
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value })
+  }
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-    setInputs({ ...inputs, [id]: value });
-  };
+  // const dispatch = useDispatch()
+  const onSubmit = async (e) => {
+    e.preventDefault()
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  };
+    try {
+      // await onLogin(values)
+      // dispatch(authenticateUser())
+
+      localStorage.setItem('isAuth', 'true')
+    } catch (error) {
+      console.log(error.response.data.errors[0].msg)
+      setError(error.response.data.errors[0].msg)
+    }
+  }
+
   return (
     <>
-      <h2 className="text-center"> Login</h2>
-      <form className="form-control">
+      <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
+        <h1>Login</h1>
 
-        <div>
+        <div className='mb-3'>
+          <label htmlFor='email' className='form-label'>
+            Email address
+          </label>
           <input
-            type="email"
-            id="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            id="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
+            type='email'
+            className='form-control'
+            id='email'
+            name='email'
+            value={values.email}
+            placeholder='test@gmail.com'
+            required
           />
         </div>
 
-        <div className="btn-control">
-          <button className="btn btn-success btn-block">Login</button>
+        <div className='mb-3'>
+          <label htmlFor='password' className='form-label'>
+            Password
+          </label>
+          <input
+            onChange={(e) => onChange(e)}
+            type='password'
+            value={values.password}
+            className='form-control'
+            id='password'
+            name='password'
+            placeholder='passwod'
+            required
+          />
         </div>
+
+        <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
+
+        <button type='submit' className='btn btn-primary'>
+          Submit
+        </button>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

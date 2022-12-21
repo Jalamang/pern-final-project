@@ -13,11 +13,13 @@ const NewProduct = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    if(id){
     const fetchData = async () => {
       const productData = await axios.get(API + "/products/" + id);
       setProduct(productData.data);
     };
     fetchData();
+  }
   }, []);
 
   const handleTextChange = (event) => {

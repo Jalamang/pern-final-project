@@ -1,19 +1,27 @@
 // DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const { CLIENT_URL } = require("./constant");
+const passport = require("passport");
+
 
 // CONFIGURATION
 const app = express();
 
+//controllers
 const productController = require('./Controllers/productsController')
-
+const loginSignUpConroller = require("./Controllers/loginSignupController");
 
 // MIDDLEWARE
-app.use(cors());
+app.use(cors({origin: CLIENT_URL, credentials: true}));
 app.use(express.json()); // Parse incoming JSON
+app.use(cookieParser())
+app.use(passport.initialize())
 
 
 app.use("/products", productController);
+app.use("/auth", loginSignUpConroller);
 
 
 

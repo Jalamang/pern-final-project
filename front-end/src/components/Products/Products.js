@@ -5,7 +5,7 @@ import Content from "./Content/Content";
 import ShoppingCart from "./ShoppingCart";
 
 const API = process.env.REACT_APP_API_URL;
-
+console.log("http://localhost:3333/products");
 const Products = ({
   cartList,
   handleAddProduct,
@@ -33,6 +33,8 @@ const Products = ({
     setTimeout(() => fetchData(), 1000);
   }, []);
 
+
+  console.log(products);
   return (
     <>
       <SearchProduct search={search} setSearch={setSearch} />

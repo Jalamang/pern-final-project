@@ -6,7 +6,7 @@ import { ShoppingCartOutlined } from "@material-ui/icons";
 
 import React from "react";
 import { FaHome } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 
@@ -31,6 +31,10 @@ const Navbar = ({cartList}) => {
           New Product
         </Button>
         
+        {/* <div
+        className="primary new-prod">
+            <Link to="/login" >Login</Link>
+        </div> */}
         <div 
         onClick={() => navigate("/cart")}>
           <Badge badgeContent={cartList.length} color="primary">

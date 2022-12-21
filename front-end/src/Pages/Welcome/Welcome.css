@@ -17,7 +17,7 @@ video {
 
 .viewport-header {
   position: relative;
-  height: 19vh;
+  height: 55vh;
   text-align: center;
   display: flex;
   align-items: center;
@@ -30,7 +30,7 @@ video {
   /* border: 1px solid; */
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 12px;
-  background-color: rgba(245, 247, 248, 0.096);
+  /* background-color: rgba(245, 247, 248, 0.096); */
 }
 
 /* .welcome h1 {

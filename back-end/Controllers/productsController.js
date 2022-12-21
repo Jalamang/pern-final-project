@@ -6,7 +6,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../queries/products");
-const { determinePrice, formatProductName } = require("./determinePrice");
+const { determinePrice } = require("./determinePrice");
 const products = express.Router();
 
 products.get("/", async (_, response) => {
@@ -26,21 +26,33 @@ products.get("/:id", async (request, response) => {
 
 products.post("/", async (request, response) => {
   let newProduct = request.body;
-  try {
-    newProduct.material = formatProductName(newProduct.material);
-    newProduct.price = determinePrice(newProduct);
+  
+// console.log(newProduct)
+  if(newProduct.capacity === 0){
+    response.send({ error: "Cannot create product, price is undefined" });
+  } else {
+    try {
+  
+      newProduct.price = determinePrice(newProduct.material, newProduct.capacity).toFixed(2);;
+   
     const newProd = await createProduct(newProduct);
     response.status(200).send(newProd);
   } catch (error) {
     response.status(404).send({ error: "Product cannot be created" });
   }
+  }
+  
 });
 
 products.put("/:id", async (request, response) => {
+  let updatedProduct = request.body;
   const { id } = request.params;
 
+  console.log(updatedProduct)
   try {
-    const newProduct = await updateProduct(id, request.body);
+    updatedProduct.price = determinePrice(updatedProduct.material, updatedProduct.capacity).toFixed(2);
+
+    const newProduct = await updateProduct(id, updatedProduct);
 
     response.status(200).send(newProduct);
   } catch (error) {
