@@ -10,7 +10,7 @@ const app = express();
 
 //controllers
 const productController = require('./Controllers/productsController')
-const loginSignUpConroller = require("./Controllers/loginSignupController");
+// const loginSignUpConroller = require("./Controllers/loginSignupController");
 
 // MIDDLEWARE
 app.use(cors({origin: CLIENT_URL, credentials: true}));
