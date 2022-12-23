@@ -20,7 +20,7 @@ app.use(passport.initialize())
 
 
 app.use("/products", productController);
-app.use("/auth", loginSignUpConroller);
+// app.use("/auth", loginSignUpConroller);
 
 
 
