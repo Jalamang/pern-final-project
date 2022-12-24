@@ -2,7 +2,6 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const { CLIENT_URL } = require("./constant");
 const passport = require("passport");
 
 
@@ -11,10 +10,10 @@ const app = express();
 
 //controllers
 const productController = require('./Controllers/productsController')
-const loginSignUpConroller = require("./Controllers/loginSignupController");
+// const loginSignUpConroller = require("./Controllers/loginSignupControlls.j");
 
 // MIDDLEWARE
-app.use(cors({origin: CLIENT_URL, credentials: true}));
+app.use(cors({origin: process.env.SECRET, credentials: true}));
 app.use(express.json()); // Parse incoming JSON
 app.use(cookieParser())
 app.use(passport.initialize())
