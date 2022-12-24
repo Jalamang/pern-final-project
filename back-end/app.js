@@ -10,17 +10,17 @@ const app = express();
 
 //controllers
 const productController = require('./Controllers/productsController')
-// const loginSignUpConroller = require("./Controllers/loginSignupControlls.j");
+// const loginSignUpConroller = require("./Controllers/loginSignupController");
 
 // MIDDLEWARE
-app.use(cors({origin: process.env.SECRET, credentials: true}));
+app.use(cors({origin: "http://localhost:3007", credentials: true}));
 app.use(express.json()); // Parse incoming JSON
 app.use(cookieParser())
 app.use(passport.initialize())
 
 
 app.use("/products", productController);
-app.use("/auth", loginSignUpConroller);
+// app.use("/auth", loginSignUpConroller);
 
 
 
